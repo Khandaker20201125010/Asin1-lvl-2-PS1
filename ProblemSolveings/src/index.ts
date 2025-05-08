@@ -34,8 +34,8 @@ console.log(filterByRating(books));
 //Description: Create a generic function that concatenates multiple arrays of the same type using rest parameters.
 
 //solution 3
-function concatenateArrays<T>(...arrays: T[][]): T[]{
-    return([] as T []).concat(...arrays);
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+    return ([] as T[]).concat(...arrays);
 }
 console.log(concatenateArrays(["a", "b"], ["c"]));
 console.log(concatenateArrays([1, 2], [3, 4], [5]));
@@ -71,3 +71,21 @@ class Car extends Vehicle {
 const myCar = new Car("Toyota", 2020, "Corolla");
 console.log(myCar.getInfo());
 console.log(myCar.getModel());
+
+//problem 5
+// Description: Write a function that takes a string | number and returns:
+
+// The length if it's a string
+// The number multiplied by 2 if it's a number
+
+//solution 5
+function processValue(input: string | number): number {
+    if(typeof input === 'string') {
+        return input.length;
+    } else if(typeof input === 'number') {
+        return input * 2;
+    }
+    return 0;
+}
+console.log(processValue("hello"));
+console.log(processValue(10)); 

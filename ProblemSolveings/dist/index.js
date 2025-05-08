@@ -1,1 +1,73 @@
 "use strict";
+//problem 1
+// Description: Create a function that takes a string and an optional boolean.
+// If the boolean is true or not provided, return the string in uppercase.
+// If the boolean is false, return the string in lowercase.
+//solution 1
+function formatString(input, toUpper) {
+    return toUpper ? input.toUpperCase() : input.toLowerCase();
+}
+console.log(formatString("Hello"));
+console.log(formatString("Hello", true));
+console.log(formatString("Hello", false));
+//problem 2
+// Description: Create a function that filters an array of objects by the rating property, returning only items with a rating of 4 or more.
+//solution 2
+function filterByRating(items) {
+    return items.filter(item => item.rating >= 4);
+}
+const books = [
+    { title: "Book A", rating: 4.5 },
+    { title: "Book B", rating: 3.2 },
+    { title: "Book C", rating: 5.0 }
+];
+console.log(filterByRating(books));
+//problem 3
+//Description: Create a generic function that concatenates multiple arrays of the same type using rest parameters.
+//solution 3
+function concatenateArrays(...arrays) {
+    return [].concat(...arrays);
+}
+console.log(concatenateArrays(["a", "b"], ["c"]));
+console.log(concatenateArrays([1, 2], [3, 4], [5]));
+//problem 4
+// Create a Vehicle class with private make and year properties and a getInfo() method.
+// Create a Car class extending Vehicle, adding a private model property and a getModel() method.
+//solution 4
+class Vehicle {
+    constructor(make, year) {
+        this.make = make;
+        this.year = year;
+    }
+    getInfo() {
+        return `This vehicle is a ${this.make} from ${this.year}.`;
+    }
+}
+class Car extends Vehicle {
+    constructor(make, year, model) {
+        super(make, year);
+        this.model = model;
+    }
+    getModel() {
+        return `The model is ${this.model}.`;
+    }
+}
+const myCar = new Car("Toyota", 2020, "Corolla");
+console.log(myCar.getInfo());
+console.log(myCar.getModel());
+//problem 5
+// Description: Write a function that takes a string | number and returns:
+// The length if it's a string
+// The number multiplied by 2 if it's a number
+//solution 5
+function processValue(input) {
+    if (typeof input === 'string') {
+        return input.length;
+    }
+    else if (typeof input === 'number') {
+        return input * 2;
+    }
+    return 0;
+}
+console.log(processValue("hello"));
+console.log(processValue(10));
