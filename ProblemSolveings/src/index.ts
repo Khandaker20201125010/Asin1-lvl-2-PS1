@@ -1,10 +1,4 @@
-//problem 1
-// Description: Create a function that takes a string and an optional boolean.
 
-// If the boolean is true or not provided, return the string in uppercase.
-// If the boolean is false, return the string in lowercase.
-
-//solution 1
 function formatString(input: string, toUpper?: boolean): string {
     return toUpper ? input.toUpperCase() : input.toLowerCase();
 }
@@ -13,11 +7,6 @@ console.log(formatString("Hello"));
 console.log(formatString("Hello", true));
 console.log(formatString("Hello", false));
 
-//problem 2
-
-// Description: Create a function that filters an array of objects by the rating property, returning only items with a rating of 4 or more.
-
-//solution 2
 function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
     return items.filter(item => item.rating >= 4);
 }
@@ -30,21 +19,13 @@ const books = [
 console.log(filterByRating(books));
 
 
-//problem 3
-//Description: Create a generic function that concatenates multiple arrays of the same type using rest parameters.
-
-//solution 3
 function concatenateArrays<T>(...arrays: T[][]): T[] {
     return ([] as T[]).concat(...arrays);
 }
 console.log(concatenateArrays(["a", "b"], ["c"]));
 console.log(concatenateArrays([1, 2], [3, 4], [5]));
 
-//problem 4
-// Create a Vehicle class with private make and year properties and a getInfo() method.
-// Create a Car class extending Vehicle, adding a private model property and a getModel() method.
 
-//solution 4
 class Vehicle {
     private make: string;
     private year: number;
@@ -72,13 +53,7 @@ const myCar = new Car("Toyota", 2020, "Corolla");
 console.log(myCar.getInfo());
 console.log(myCar.getModel());
 
-//problem 5
-// Description: Write a function that takes a string | number and returns:
 
-// The length if it's a string
-// The number multiplied by 2 if it's a number
-
-//solution 5
 function processValue(value: string | number): number {
     if (typeof value === "string") {
         return value.length;
@@ -89,9 +64,7 @@ function processValue(value: string | number): number {
 console.log(processValue("hello"));
 console.log(processValue(10));
 
-// Problem 6:
-// Description: Define an interface Product and create a function to find the product with the highest price in an array. If the array is empty, return null.
-//solution 6
+
 interface Product {
     name: string;
     price: number;
@@ -110,12 +83,7 @@ const products = [
 const mostExpensiveProduct = getMostExpensiveProduct(products);
 console.log(mostExpensiveProduct);
 
-//problem 7
 
-// Define an enum Day for the days of the week.
-// Create a function that returns "Weekday" or "Weekend" based on the input day.
-
-//solution 7
 enum Day {
     Monday,
     Tuesday,
@@ -134,3 +102,34 @@ function isWeekend(day: Day): string {
 }
 console.log(isWeekend(Day.Monday));
 console.log(isWeekend(Day.Saturday));
+
+
+async function squareAsync(n: number): Promise<number> {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (n < 0) {
+                reject(new Error("Neg number is  not allowed"));
+            } else {
+                resolve(n * n);
+            }
+        }, 1000);
+    });
+}
+
+
+squareAsync(4)
+    .then((result) => {
+        console.log(result);  
+    })
+    .catch((error) => {
+        console.error(error); 
+    });
+
+
+squareAsync(-3)
+    .then((result) => {
+        console.log(result); 
+    })
+    .catch((error) => {
+        console.error(error); 
+    });
