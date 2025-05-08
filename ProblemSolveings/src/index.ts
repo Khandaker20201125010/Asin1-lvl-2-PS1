@@ -109,3 +109,28 @@ const products = [
   
 const mostExpensiveProduct = getMostExpensiveProduct(products);
 console.log(mostExpensiveProduct);
+
+//problem 7
+
+// Define an enum Day for the days of the week.
+// Create a function that returns "Weekday" or "Weekend" based on the input day.
+
+//solution 7
+enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+}
+function isWeekend(day: Day): string {
+    if (day === Day.Saturday || day === Day.Sunday) {
+        return "Weekend";
+    } else {
+        return "Weekday";
+    }
+}
+console.log(isWeekend(Day.Monday));
+console.log(isWeekend(Day.Saturday));
