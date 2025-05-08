@@ -60,14 +60,26 @@ console.log(myCar.getModel());
 // The length if it's a string
 // The number multiplied by 2 if it's a number
 //solution 5
-function processValue(input) {
-    if (typeof input === 'string') {
-        return input.length;
+function processValue(value) {
+    if (typeof value === "string") {
+        return value.length;
     }
-    else if (typeof input === 'number') {
-        return input * 2;
+    else {
+        return value * 2;
     }
-    return 0;
 }
 console.log(processValue("hello"));
 console.log(processValue(10));
+function getMostExpensiveProduct(products) {
+    if (products.length === 0)
+        return null;
+    const highestPrice = Math.max(...products.map((product) => product.price));
+    return products.find((product) => product.price === highestPrice) || null;
+}
+const products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 }
+];
+const mostExpensiveProduct = getMostExpensiveProduct(products);
+console.log(mostExpensiveProduct);

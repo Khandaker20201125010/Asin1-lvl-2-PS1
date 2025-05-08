@@ -79,13 +79,33 @@ console.log(myCar.getModel());
 // The number multiplied by 2 if it's a number
 
 //solution 5
-function processValue(input: string | number): number {
-    if(typeof input === 'string') {
-        return input.length;
-    } else if(typeof input === 'number') {
-        return input * 2;
+function processValue(value: string | number): number {
+    if (typeof value === "string") {
+        return value.length;
+    } else {
+        return value * 2;
     }
-    return 0;
 }
 console.log(processValue("hello"));
-console.log(processValue(10)); 
+console.log(processValue(10));
+
+// Problem 6:
+// Description: Define an interface Product and create a function to find the product with the highest price in an array. If the array is empty, return null.
+//solution 6
+interface Product {
+    name: string;
+    price: number;
+}
+function getMostExpensiveProduct(products: Product[]): Product | null {
+    if (products.length === 0) return null;
+    const highestPrice = Math.max(...products.map((product) => product.price));
+    return products.find((product) => product.price === highestPrice) || null;
+}
+const products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 }
+  ];
+  
+const mostExpensiveProduct = getMostExpensiveProduct(products);
+console.log(mostExpensiveProduct);
